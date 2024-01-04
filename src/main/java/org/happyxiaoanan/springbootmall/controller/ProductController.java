@@ -3,6 +3,7 @@ package org.happyxiaoanan.springbootmall.controller;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import org.happyxiaoanan.springbootmall.constant.ProductCategory;
+import org.happyxiaoanan.springbootmall.dto.ProductQueryParams;
 import org.happyxiaoanan.springbootmall.dto.ProductRequest;
 import org.happyxiaoanan.springbootmall.model.Product;
 import org.happyxiaoanan.springbootmall.service.ProductService;
@@ -24,7 +25,11 @@ public class ProductController {
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search
     ) {
-        List<Product> productList = productService.getProducts(category, search);
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
