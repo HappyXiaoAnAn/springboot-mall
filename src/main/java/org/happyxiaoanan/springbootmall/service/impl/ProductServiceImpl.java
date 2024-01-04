@@ -1,0 +1,19 @@
+package org.happyxiaoanan.springbootmall.service.impl;
+
+import org.happyxiaoanan.springbootmall.dao.ProductDao;
+import org.happyxiaoanan.springbootmall.model.Product;
+import org.happyxiaoanan.springbootmall.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ProductServiceImpl implements ProductService {
+
+    @Autowired
+    private ProductDao productDao;
+
+    @Override
+    public Product getProductById(Integer productId) {
+        return productDao.getProductById(productId);
+    }
+}
