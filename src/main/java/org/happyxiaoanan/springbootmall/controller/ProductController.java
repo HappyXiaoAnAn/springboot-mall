@@ -3,7 +3,6 @@ package org.happyxiaoanan.springbootmall.controller;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.websocket.server.PathParam;
 import org.happyxiaoanan.springbootmall.constant.ProductCategory;
 import org.happyxiaoanan.springbootmall.dto.ProductQueryParams;
 import org.happyxiaoanan.springbootmall.dto.ProductRequest;
@@ -58,7 +57,7 @@ public class ProductController {
         page.setLimit(limit);
         page.setOffset(offset);
         page.setTotal(total);
-        page.setResult(productList);
+        page.setResults(productList);
 
         return ResponseEntity.status(HttpStatus.OK).body(page);
     }
