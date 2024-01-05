@@ -25,7 +25,7 @@ import java.util.List;
 @Component
 public class OrderServiceImpl implements OrderService {
 
-    private final static Logger log = LoggerFactory.getLogger(OrderService.class);
+    private final static Logger log = LoggerFactory.getLogger(OrderServiceImpl.class);
 
     @Autowired
     private OrderDao orderDao;
