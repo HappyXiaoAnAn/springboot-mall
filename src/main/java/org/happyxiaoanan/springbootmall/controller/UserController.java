@@ -1,6 +1,7 @@
 package org.happyxiaoanan.springbootmall.controller;
 
 import jakarta.validation.Valid;
+import org.happyxiaoanan.springbootmall.dto.UserLoginRequest;
 import org.happyxiaoanan.springbootmall.dto.UserRegisterRequest;
 import org.happyxiaoanan.springbootmall.model.User;
 import org.happyxiaoanan.springbootmall.service.UserService;
@@ -24,5 +25,12 @@ public class UserController {
         User user = userService.getUserById(userId);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+
+    @PostMapping("/users/login")
+    public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest) {
+        User user = userService.login(userLoginRequest);
+
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 }
